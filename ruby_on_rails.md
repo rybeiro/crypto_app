@@ -114,4 +114,20 @@
 	Significa Embedded Ruby. Utilizada para interpolar código ruby dentro de páginas html
 	**Uso**
 	```
-	<%= puts 'Eu sou interpolado através do erb eu sou o arquivo index.html.erb' %> 
+	<%= 1 + 1 %>
+	<%= Date.today %>
+```
+## HELPER
+São métodos que facilitam a implementação de um trecho de código e reutilização em qualquer parte do projeto, desde que implementado no arquivo `app/helpers/application_helper.rb`, exemplo de helpers padrões do Rails
+
+- link_to (utilizado para links)
+- image_tag (utilizado para imagens)
+
+**Criando HELPER**
+Para criar helper para toda aplicação sempre implementamos no `application_helper` mas para melhorar o desempenho da aplicação se for apenas para um recurso implementamos em `nome-do-recurso_helper.rb`. O exemplo abaixo implementado no `application_helper.rb` formata a data no padrão americano para brasileiro.
+```
+def data_br(data_us)
+	data_us.strftime("%d/%m/%Y")
+end
+```
+Para chamar o helper em qualquer view do projeto basta fazer assim: `data_br(Date.today)`
