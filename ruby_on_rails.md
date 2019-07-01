@@ -106,8 +106,16 @@
 		> Sempre que utilizar o generate para criar o Controller em conjunto com as View é necessário configurar a rota
 
 ## MODEL
-	O Model é responsável pela comunicação com o banco de dados através do ActiveRecord
-
+O Model é responsável pela comunicação com o banco de dados através do ActiveRecord.
+Para usar o console do rails via console podemos utilizar a `gem pry-rails` em seguida rodar no terminal `bundle install` auxilia visualmente com marcações coloridas.
+**Alguns comandos uteis para Models**
+Acesse o console do Rails com o comando `rails console` ou `rails c`
+```
+NomeModel.first
+NomeModel.last
+NomeModel.all
+```
+Veja que a saída e organizada e estruturada.
 ## VIEW
 
 ### ERB
