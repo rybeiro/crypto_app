@@ -1,14 +1,34 @@
 # Ruby on Rails - Material de apoio
-## Estrutura dos projeto Ruby on Rails
-	Os projetos estão na estruturado com padrão MVC
+### Ruby
+É uma liguagem de programação. [Documentação](https://www.ruby-lang.org/pt/)
+### RVM
+Ruby Version Manager. [Documentação](https://rvm.io/)
+**Comandos úteis**
+```
+rvm list known - Lista todas as versões no repositório
+rvm get head - Atualiza a lista
+rvm list - Lista as versões locais
+rvm install x.x.x - Instala a versão especificada
+rvm install x.x.x --default - Instala a versão escolhida e torna ela padrão
+rvm use x.x.x - Usa uma versão especificada
 
-## Criando um novo projeto Ruby on Rails
+```
+### Ruby on Rails
+É o framework de desenvolvimento de aplicações Web escrito com a liguagem Ruby. [Documentação](https://rubyonrails.org/)
+### Gems
+São Bibliotecas Reutilizáveis. [Documentação](https://rubygems.org/)
+## Estrutura dos projeto Ruby on Rails
+Os projetos estão na estruturado com padrão MVC
+
+# Tipos de dados
+
+# Criando um novo projeto Ruby on Rails
 	```
 	rails new app
 	```
 	Comando rails cria um novo projeto com o nome `app`
 
-## Scaffold
+## Scaffold - Método mágico que cria toda estrutura de arquivos MVC de um dado Objeto
 	```
 	rails generate scaffold Exemplos field_1:type field_2:type
 	```
@@ -106,7 +126,26 @@
 		> Sempre que utilizar o generate para criar o Controller em conjunto com as View é necessário configurar a rota
 
 ## MODEL
-	O Model é responsável pela comunicação com o banco de dados através do ActiveRecord
+O Model é responsável pela comunicação com o banco de dados através do ActiveRecord.
+Para usar o console do rails via console podemos utilizar a `gem pry-rails` em seguida rodar no terminal `bundle install` auxilia visualmente com marcações coloridas.
+**Alguns comandos uteis para Models**
+Acesse o console do Rails com o comando `rails console` ou `rails c`. Com Rails console conseguimos interagir como as Models.
+Efetuando consultas utilizando o rails console
+```
+NomeModel.first
+NomeModel.last
+NomeModel.all
+```
+Veja que utlizando o pry-rails a saída e organizada e estruturada.
+Criando uma nova tupla utilizando rails console
+```
+rails c
+var = NomeModel.new
+var.field_1 = "Valor"
+var.field_2 = "Valor"
+c.save!
+```
+*O símbolo de ! força a exibição de um erro*
 
 ## VIEW
 
@@ -114,4 +153,58 @@
 	Significa Embedded Ruby. Utilizada para interpolar código ruby dentro de páginas html
 	**Uso**
 	```
-	<%= puts 'Eu sou interpolado através do erb eu sou o arquivo index.html.erb' %> 
+	<%= 1 + 1 %>
+	<%= Date.today %>
+```
+## HELPER
+São métodos que facilitam a implementação de um trecho de código e reutilização em qualquer parte do projeto, desde que implementado no arquivo `app/helpers/application_helper.rb`, exemplo de helpers padrões do Rails
+
+- link_to (utilizado para links)
+- image_tag (utilizado para imagens)
+
+**Criando HELPER**
+Para criar helper para toda aplicação sempre implementamos no `application_helper` mas para melhorar o desempenho da aplicação se for apenas para um recurso implementamos em `nome-do-recurso_helper.rb`. O exemplo abaixo implementado no `application_helper.rb` formata a data no padrão americano para brasileiro.
+```
+def data_br(data_us)
+	data_us.strftime("%d/%m/%Y")
+end
+```
+Para chamar o helper em qualquer `view` do projeto basta fazer assim: `data_br(Date.today)`
+
+## AMBIENTE
+Ambiente que você está no Rails, ou seja, é onde sua aplicação está sendo executada no momento.
+O comando para identificar o ambiente é ```Rails.env``` você pode testar acessando o console do Rails.
+Para identificar em qual ambiente você está utilize o comando no console
+```
+Rails.env.development?
+Rails.env.production?
+```
+# VARIÁVEIS
+## Variáveis de instância @
+	Para cada objeto cria-se uma nova instância. Quando instanciamos a variável no `controller/action` ela fica disponível para view. Mas se torna variável de sessão porque cada janela do browser a variável cria uma nova instância.
+```
+@varialvel
+```
+
+## HASH
+Trata-se de um par de chave:valor, segue um exemplo de como atribuir e acessar
+```
+h = {nome:"Meu nome", curso:"Rails"}
+h[:nome]
+h[:curso]
+```
+
+## Query Params
+Trata-se de uma variável global `variable params` podemos pegar os valores passados pela URL. Exemplo de url localhost:3000?nome=Joao&curso=Rails para acessar esse valor pegamos pela variável global `params` através do exemplo de hash. Basicamente trata-se do verbo GET
+```
+params[:nome]
+params[:curso]
+```
+# Partial template
+Partials são partes de uma página que podem ser rederizadas e/ou reutilizadas nas views. Um exemplo poderia ser o Menu do site. A partial deve ficar dentro do diretório da `view` correspondente.
+*Importante seguir o padrão: `_menu.html.erb`* Nas páginas que deverão ser rederizados deve-se fazer a seguinte chamada.
+```
+render "menu"
+```
+
+# Layout
