@@ -4,7 +4,9 @@
 
 ### RVM
 Ruby Version Manager. [Documentação](https://rvm.io/)
+
 **Comandos úteis**
+
 ```
 rvm list known - Lista todas as versões no repositório
 rvm get head - Atualiza a lista
@@ -14,6 +16,7 @@ rvm install x.x.x --default - Instala a versão escolhida e torna ela padrão
 rvm use x.x.x - Usa uma versão especificada
 
 ```
+
 ### Ruby on Rails
 É o framework de desenvolvimento de aplicações Web escrito com a liguagem Ruby. [Documentação](https://rubyonrails.org/)
 
@@ -26,14 +29,14 @@ Os projetos estão na estruturado com padrão MVC
 # Tipos de dados
 
 # Criando um novo projeto Ruby on Rails
-O comando `<rails new>` cria um novo projeto
+O comando `rails new` cria um novo projeto
 
 ```
 rails new app
 ```
 
 ## Scaffold - Método mágico que cria toda estrutura de arquivos MVC de um dado Objeto
-O comando `<rails generate scaffold>` gera automaticamente os arquivos referentes ao MVC e a modelagem *(migrate)* do banco de dados com seus respectivos campos tipados.
+O comando `rails generate scaffold` gera automaticamente os arquivos referentes ao MVC e a modelagem *(migrate)* do banco de dados com seus respectivos campos tipados.
 
 ```
 rails generate scaffold Exemplos field_1:type field_2:type
@@ -55,7 +58,9 @@ rails db:migrate
 ```
 
 **Detalhando:**
+
 *db* é o *namespace* que nomeia e identifica o local onde está a classe
+
 *migrate* e a tarefa que será executada para criar a tabela.
 
 ## Seed
@@ -66,7 +71,7 @@ rails db:seed
 ```
 
 # Tasks
-	Ações que podem ser executadas automaticamente para agilizar tarefas
+Ações que podem ser executadas automaticamente para agilizar tarefas
 
 ## Gerando suas próprias task
 
@@ -92,11 +97,11 @@ npm install yarn
 yarn init
 ```
 
-Responder todas as questões como padrão após concluir será gerado um arquivo `<package.json>`
+Responder todas as questões como padrão após concluir será gerado um arquivo `package.json`
 
 ## Usar JS com Yarn para instalar pacotes
 Acessar a Documentação e pesquisar pela biblioteca que será usado
-Exemplos: `<jquery e notify-js-legacy>`
+Exemplos: `jquery e notify-js-legacy`
 
 ```
 yarn add jquery
@@ -104,14 +109,19 @@ yarn add notify-js-legacy
 ```
 
 Para utilizar essas bibliotecas deve-se seguir os passos:
+
 **JS**
-Adicionar no arquivo `<application.js.erb>` para toda aplicação
+
+Adicionar no arquivo `application.js.erb` para toda aplicação
+
 `//= require jquery`
+
 `//= require notify-js/notify`
+
 `//= require bootstrap/css/bootstrap`
 
 ## Reinstalando todas as bibliotecas
-Observe se na raiz do projeto tem o arquivo `<package.json>`, se tiver rode o seguinte comando:
+Observe se na raiz do projeto tem o arquivo `package.json`, se tiver rode o seguinte comando:
 
 ```
 yarn install
@@ -128,7 +138,9 @@ yarn add bootstrap
 > Resolva as dependências
 
 **CSS**
+
 Adicionar no arquivo application.css.erb
+
 `//= require bootstrap/css/bootstrap`
 
 ## ROUTE
@@ -150,6 +162,7 @@ rails generate controller nome_do_controller nome_das_actions
 ```
 
 Um exemplos para criar a controller *Welcome* com a action *index* o comando abaixo também cria a view corresponde as actions informadas na geração automática.
+
 **Criar**
 
 ```
@@ -169,7 +182,7 @@ rails destroy controller Welcome index
 O Model é responsável pela comunicação com o banco de dados através do ActiveRecord.
 
 ## Rails console
-Para usar o console do rails podemos utilizar o comando `<rails console>` ou `<rails c>`. Com Rails console conseguimos interagir como as Models.
+Para usar o console do rails podemos utilizar o comando `rails console` ou `rails c`. Com Rails console conseguimos interagir como as Models.
 Efetuando consultas utilizando o rails console
 
 ```
@@ -179,7 +192,7 @@ NomeModel.all
 ```
 
 ### Melhorar a visualização da syntax do console
-Para isso precisamos intalar a `<gem pry-rails>` em seguida rodar no terminal `<bundle install>` melhora visualmente com marcações coloridas na sintaxe.
+Para isso precisamos intalar a `gem pry-rails` em seguida rodar no terminal `bundle install` melhora visualmente com marcações coloridas na sintaxe.
 Veja que utlizando o pry-rails a saída e organizada e estruturada.
 Criando uma nova tupla utilizando rails console
 
@@ -191,7 +204,7 @@ var.field_2 = "Valor"
 c.save!
 ```
 
-> O símbolo de ! força a exibição de um erro
+> O símbolo de ! força a exibição das exceptions
 
 ## VIEW
 
@@ -206,26 +219,26 @@ Significa Embedded Ruby. Utilizada para interpolar código ruby dentro de págin
 ```
 
 # HELPERS
-São métodos que facilitam a implementação de um trecho de código e reutilização em qualquer parte do projeto, desde que implementado no arquivo `<app/helpers/application_helper.rb>`, exemplo de helpers padrões do Rails
+São métodos que facilitam a implementação de um trecho de código e reutilização em qualquer parte do projeto, desde que implementado no arquivo `app/helpers/application_helper.rb`, exemplo de helpers padrões do Rails
 
 * <%= link_to '', coins_path %> Mesmo que <a href="/coins">Cadastrar Moedas</a>
-* <%= image_tag image_url, size:100x80 %> Mesmo que <img src="https://localhost/images/imagem.png" width="100" height="80">
+* <%= image_tag image_url, size:100x80 %> Mesmo que `img src="image.png" width="100" height="80"``
 
 **Criando seus HELPERS**
 
-Para criar helper para toda aplicação sempre implementamos no `<application_helper.rb>` mas para melhorar o desempenho da aplicação se for apenas para um recurso implementamos em `<nome-do-recurso_helper.rb>`. O exemplo abaixo implementado no `<application_helper.rb>` formata a data no padrão americano para brasileiro.
+Para criar helper para toda aplicação sempre implementamos no `application_helper.rb` mas para melhorar o desempenho da aplicação se for apenas para um recurso implementamos em `nome-do-recurso_helper.rb`. O exemplo abaixo implementado no `application_helper.rb` formata a data no padrão americano para brasileiro.
 
 ```
 def data_br(data_us)
-	data_us.strftime("%d/%m/%Y %H%M")
+  data_us.strftime("%d/%m/%Y %H%M")
 end
 ```
 
-Para chamar o helper em qualquer *view* do projeto basta fazer assim: `< <%= data_br(DateTime.now) %> >`
+Para chamar o helper em qualquer *view* do projeto basta fazer assim: ` <%= data_br(DateTime.now) %> `
 
 # AMBIENTE
 Ambiente que você está no Rails, ou seja, é onde sua aplicação está sendo executada no momento.
-O comando para identificar o ambiente é `<Rails.env>` você pode testar acessando o console do Rails.
+O comando para identificar o ambiente é `Rails.env` você pode testar acessando o console do Rails.
 Para identificar em qual ambiente você está utilize o comando no console
 
 ```
@@ -253,7 +266,7 @@ h[:curso]
 ```
 
 # Query Params
-`<params>` variável global e podemos passá-las pela URL mediante um par de chave:valor. Exemplo de url localhost:3000?*nome=Joao&curso=Rails* para acessar esse valor pegamos pela variável global `params` através de hash. Basicamente trata-se do verbo GET
+`params` variável global e podemos passá-las pela URL mediante um par de chave:valor. Exemplo de url localhost:3000?*nome=Joao&curso=Rails* para acessar esse valor pegamos pela variável global `params` através de hash. Basicamente trata-se do verbo GET
 
 ```
 params[:nome]
