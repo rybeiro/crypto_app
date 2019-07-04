@@ -1,9 +1,14 @@
 # Ruby on Rails - Material de apoio
 ### Ruby
-É uma liguagem de programação. [Documentação](https://www.ruby-lang.org/pt/)
+É uma liguagem de programação.
+[Acesso a Documentação](https://www.ruby-lang.org/pt/)
+
+### IRB (Interactive Ruby Shell)
+Trata-se de um shell ou console ruby.
 
 ### RVM
-Ruby Version Manager. [Documentação](https://rvm.io/)
+Ruby Version Manager. Ferramenta de linha de comando que facilita a instalação de multiplas versões do Ruby
+[Acesso a Documentação](https://rvm.io/)
 
 **Comandos úteis**
 
@@ -18,15 +23,21 @@ rvm use x.x.x - Usa uma versão especificada
 ```
 
 ### Ruby on Rails
-É o framework de desenvolvimento de aplicações Web escrito com a liguagem Ruby. [Documentação](https://rubyonrails.org/)
+É o framework de desenvolvimento de aplicações Web escrito com a liguagem Ruby. [Acesso a Documentação](https://rubyonrails.org/)
 
 ### Gems
-São Bibliotecas Reutilizáveis. [Documentação](https://rubygems.org/)
+São Bibliotecas Reutilizáveis. [Acesso a Documentação](https://rubygems.org/)
 
 ## Estrutura dos projeto Ruby on Rails
 Os projetos estão na estruturado com padrão MVC
 
 # Tipos de dados
+### Tipos primitivos
+
+* integer
+* float
+* string
+* boolean
 
 # Criando um novo projeto Ruby on Rails
 O comando `rails new` cria um novo projeto
@@ -285,3 +296,33 @@ render "menu"
 ```
 
 # Layout
+O padrão está em `app/view/layouts/application.html.erb` todo conteúdo do site será renderizados através desse layout. Para usar um layout diferente para uma determinada classe podemos criá-lo.
+Dentro do diretório `layouts` crie uma nova página, exemplo: *demo.html.erb* copie o conteúdo padrão de *application.html.erb* depois pode utilizá-lo nas controller definindo-o, assim: `layout "demo"`.
+
+# i18n
+i18n é a siglas para **Internacionalization**. Utilizamos para traduzir nossa aplicação para outros idiomas.
+[Acessando a Documentação](https://guides.rubyonrails.org/i18n.html)
+
+## Intalar a Gem i18n
+
+```
+gem 'rails-i18n','~> 5.1'
+bundle install
+```
+
+Para ativar o i18n no projeto é necessário criar o arquivo *locale.rb* dentro do diretório de *config/initializers/* e configurar esse arquivo com o padrão abaixo. (Para mais informações acessar a documentação)
+
+```
+# config/initializers/locale.rb
+I18n.available_locales = [:en, "pt-BR"]
+I18n.default_locale = :en
+```
+
+**Informações sobre os métodos utilizados**
+
+* I18n.available_locales
+  - *Esse método indica quais são os idiomas disponíveis na aplicação*
+* I18n.default_locale
+  - *Definimos qual o idioma padrão quando a aplicação inicializa.*
+
+### Uso do I18n
