@@ -327,9 +327,9 @@ I18n.default_locale = :en
 
 **Informações sobre os métodos utilizados**
 
-* I18n.available_locales
+* `I18n.available_locales`
   - *Esse método indica quais são os idiomas disponíveis na aplicação*
-* I18n.default_locale
+* `I18n.default_locale`
   - *Definimos qual o idioma padrão quando a aplicação inicializa.*
 
 ### Configurando os arquivos *`locales`* responsáveis pelos idiomas
