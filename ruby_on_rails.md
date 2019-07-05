@@ -1,6 +1,7 @@
 # Ruby on Rails - Material de apoio
 ### Ruby
 É uma liguagem de programação.
+
 [Acesso a Documentação](https://www.ruby-lang.org/pt/)
 
 ### IRB (Interactive Ruby Shell)
@@ -8,6 +9,7 @@ Trata-se de um shell ou console ruby.
 
 ### RVM
 Ruby Version Manager. Ferramenta de linha de comando que facilita a instalação de multiplas versões do Ruby
+
 [Acesso a Documentação](https://rvm.io/)
 
 **Comandos úteis**
@@ -23,10 +25,14 @@ rvm use x.x.x - Usa uma versão especificada
 ```
 
 ### Ruby on Rails
-É o framework de desenvolvimento de aplicações Web escrito com a liguagem Ruby. [Acesso a Documentação](https://rubyonrails.org/)
+É o framework de desenvolvimento de aplicações Web escrito com a liguagem Ruby.
+
+[Acesso a Documentação](https://rubyonrails.org/)
 
 ### Gems
-São Bibliotecas Reutilizáveis. [Acesso a Documentação](https://rubygems.org/)
+São Bibliotecas Reutilizáveis.
+
+[Acesso a Documentação](https://rubygems.org/)
 
 ## Estrutura dos projeto Ruby on Rails
 Os projetos estão na estruturado com padrão MVC
@@ -301,6 +307,7 @@ Dentro do diretório `layouts` crie uma nova página, exemplo: *demo.html.erb* c
 
 # i18n
 i18n é a siglas para **Internacionalization**. Utilizamos para traduzir nossa aplicação para outros idiomas.
+
 [Acessando a Documentação](https://guides.rubyonrails.org/i18n.html)
 
 ## Intalar a Gem i18n
@@ -325,4 +332,10 @@ I18n.default_locale = :en
 * I18n.default_locale
   - *Definimos qual o idioma padrão quando a aplicação inicializa.*
 
-### Uso do I18n
+### Configurando os arquivos locales responsáveis pelos idiomas
+Para utilizar a tradução *i18n* em todas as view do projeto temos que configurar as chave:valor de cada idioma. Para isso temos que acessar o arquivo *config/locales/en.yml* esse arquivo é do idioma Inglês e para o o idioma Português criaremos o arquivo `pt-BR.yml`. No arquivo *en.yml* já temos o exemplo com a **chave:hello** e o **valor: Hello World!!!** Agora no arquivo `pt-BR.yml` vamos incluir essa **chave:hello** e o **valor: Olá Mundo!**, porque é ele quem será responsável pelas traduções.
+
+### Usando o I18n nas View
+Para usar basta chamar com o método `I18n.t(chave)` mas se o uso for em uma view podemos usar apenas `t(chave)`. O **t** é abreviação de *translate*.
+
+Para tradução das datas o Rails já possui o método `I18n.l(DateTime.now)` mas se for nas View podemos abreviar para `l(DateTime.now)`. O **l** é abreviação de *locale*
