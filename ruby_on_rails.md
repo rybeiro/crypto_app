@@ -317,7 +317,7 @@ gem 'rails-i18n','~> 5.1'
 bundle install
 ```
 
-Para ativar o i18n no projeto é necessário criar o arquivo *locale.rb* dentro do diretório de *config/initializers/* e configurar esse arquivo com o padrão abaixo. (Para mais informações acessar a documentação)
+Para ativar o i18n no projeto é necessário criar o arquivo *`locale.rb`* dentro do diretório de *`config/initializers/`* e configurar esse arquivo com o padrão abaixo. (Para mais informações acessar a documentação)
 
 ```
 # config/initializers/locale.rb
@@ -332,10 +332,10 @@ I18n.default_locale = :en
 * I18n.default_locale
   - *Definimos qual o idioma padrão quando a aplicação inicializa.*
 
-### Configurando os arquivos locales responsáveis pelos idiomas
-Para utilizar a tradução *i18n* em todas as view do projeto temos que configurar as chave:valor de cada idioma. Para isso temos que acessar o arquivo *config/locales/en.yml* esse arquivo é do idioma Inglês e para o o idioma Português criaremos o arquivo `pt-BR.yml`. No arquivo *en.yml* já temos o exemplo com a **chave:hello** e o **valor: Hello World!!!** Agora no arquivo `pt-BR.yml` vamos incluir essa **chave:hello** e o **valor: Olá Mundo!**, porque é ele quem será responsável pelas traduções.
+### Configurando os arquivos *`locales`* responsáveis pelos idiomas
+Para utilizar a tradução *i18n* em todas as *`view`* do projeto temos que configurar as **chave:valor** de cada idioma. Para isso temos que acessar o arquivo *`config/locales/en.yml`* esse arquivo é do idioma Inglês e para o o idioma Português criaremos o arquivo `pt-BR.yml`. No arquivo *`en.yml`* já temos o exemplo com a **chave:hello** e o **valor: Hello World!!!** Agora no arquivo `pt-BR.yml` vamos incluir essa **chave:hello** e o **valor: Olá Mundo!**, porque é ele quem será responsável pelas traduções.
 
 ### Usando o I18n nas View
-Para usar basta chamar com o método `I18n.t(chave)` mas se o uso for em uma view podemos usar apenas `t(chave)`. O **t** é abreviação de *translate*.
+Para usar basta chamar com o método `I18n.t(chave)` mas se o uso for em uma view podemos usar apenas `t(chave)`. O **`t`** é abreviação para o método *`translate`*.
 
-Para tradução das datas o Rails já possui o método `I18n.l(DateTime.now)` mas se for nas View podemos abreviar para `l(DateTime.now)`. O **l** é abreviação de *locale*
+Para tradução das datas o Rails já possui o método `I18n.l(DateTime.now)` mas se for nas View podemos abreviar para `l(DateTime.now)`. O **`l`** é abreviação para o método *`locale`*

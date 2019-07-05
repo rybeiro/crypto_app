@@ -1,6 +1,7 @@
-<p><small> Seja bem vindo, <%= @nome %>!!! Hoje é <%= data_br(DateTime.now) %></small></p>
+<p><small>  <%= t('hello') +" "+ @nome %>!! Hoje é <%= data_br(DateTime.now) %></small></p>
 <p><small>Seu curso é <%= @curso %></small></p>
 <h1>Ambiente de <%= ambiente_rails %></h1>
+<h5><%= language %></h5>
 <%= render "menu"%>
 <p>Find me in app/views/welcome/index.html.erb</p>
 <p>A soma de 1 + 1 Utilizando a interpolação de código ruby é = <%= 1+1 %></p>
