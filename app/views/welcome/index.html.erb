@@ -1,7 +1,8 @@
+<%= link_to 'Português' %> | <%= link_to 'English' %>
 <p><small>  <%= t('hello') +" "+ @nome %>!! Hoje é <%= data_br(DateTime.now) %></small></p>
 <p><small>Seu curso é <%= @curso %></small></p>
 <h1>Ambiente de <%= ambiente_rails %></h1>
-<h5><%= language %></h5>
+<h5><%= t("language") %></h5>
 <%= render "menu"%>
 <p>A exibição da data utilizando o i18n. <%= l(DateTime.now) %></p>
 <p>Utilizando o helper </p>
