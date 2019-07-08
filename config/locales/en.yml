@@ -30,4 +30,5 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
+  language: Your language is English
   hello: "Welcome,"
