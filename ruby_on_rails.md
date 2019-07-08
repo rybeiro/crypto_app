@@ -335,7 +335,34 @@ I18n.default_locale = :en
 ### Configurando os arquivos *`locales`* responsáveis pelos idiomas
 Para utilizar a tradução *i18n* em todas as *`view`* do projeto temos que configurar as **chave:valor** de cada idioma. Para isso temos que acessar o arquivo *`config/locales/en.yml`* esse arquivo é do idioma Inglês e para o o idioma Português criaremos o arquivo `pt-BR.yml`. No arquivo *`en.yml`* já temos o exemplo com a **chave:hello** e o **valor: Hello World!!!** Agora no arquivo `pt-BR.yml` vamos incluir essa **chave:hello** e o **valor: Olá Mundo!**, porque é ele quem será responsável pelas traduções.
 
-### Usando o I18n nas View
+### Usando o I18n nas *View*
 Para usar basta chamar com o método `I18n.t(chave)` mas se o uso for em uma view podemos usar apenas `t(chave)`. O **`t`** é abreviação para o método *`translate`*.
 
 Para tradução das datas o Rails já possui o método `I18n.l(DateTime.now)` mas se for nas View podemos abreviar para `l(DateTime.now)`. O **`l`** é abreviação para o método *`locale`*
+
+### Usando o I18n nas *Model*
+Podemos utilizar os recursos das *Models* para tradução com *ActiveRecord*
+
+[Acessando a Documentação](https://guides.rubyonrails.org/i18n.html#translations-for)
+
+Para usar o recurso *I18n* nas *Models* criamos um arquivo no diretório *`config/locales/`*, por exemplo `pt-BR_models.rb` com o seguinte conteúdo.
+
+```
+"pt-BR":
+  activerecord:
+    models:
+      coin:
+        one: Moeda
+        other: Moedas
+    attributes:
+      coin:
+        id: "Código"
+        description: "Descrição"
+        acronym: "Sigla"
+        url_image: "Url da Imagem"
+        updated_at: "Atualizado em"
+        created_at: "Criado em"
+```
+
+**Usando esse recurso nas *View***
+Para utilização nas *View* utilizamos o método `@NomeDaModel.human.attribute_name(:atributo)`
