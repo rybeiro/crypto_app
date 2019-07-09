@@ -1,0 +1,14 @@
+'pt-BR':
+  activerecord:
+    models:
+      coin:
+        one: Moeda
+        other: Moedas
+    attributes:
+      coin:
+        id: "Código"
+        description: "Descrição"
+        acronym: "Sigla"
+        url_image: "Url da Imagem"
+        updated_at: "Atualizado em"
+        created_at: "Criado em"
