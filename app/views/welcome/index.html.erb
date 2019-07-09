@@ -1,4 +1,4 @@
-<%= link_to 'Português' %> | <%= link_to 'English' %>
+<%= link_to 'Português', root_path(locale: 'pt-BR') %> | <%= link_to 'English', root_path(locale: 'en') %>
 <p><small>  <%= t('hello') +" "+ @nome %>!! Hoje é <%= data_br(DateTime.now) %></small></p>
 <p><small>Seu curso é <%= @curso %></small></p>
 <h1>Ambiente de <%= ambiente_rails %></h1>
@@ -6,3 +6,7 @@
 <%= render "menu"%>
 <p>A exibição da data utilizando o i18n. <%= l(DateTime.now) %></p>
 <p>Utilizando o helper </p>
+<h3>Usando Cookies</h3>
+<p><%= cookies[:curso] %></p>
+<h3>Usando Session</h3>
+<p><%= session[:user] %></p>
