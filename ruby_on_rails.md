@@ -366,3 +366,42 @@ Para usar o recurso *I18n* nas *Models* criamos um arquivo no diretório *`confi
 
 **Usando esse recurso nas *View***
 Para utilização nas *View* utilizamos o método `@NomeDaModel.human.attribute_name(:atributo)`
+
+#### Alteração do idioma (i18n) em tempo de execução
+No arquivo `aplication_controller.rb` todas as requisições vão passar por aqui.
+Então vamos armazenar o idioma que é inicializado na aplicação.
+
+```
+berfore_action :set_locale
+def set_locale
+  if params[:locale]
+    cookies[:locale] = params[:locale]
+  end
+
+  if cookies[:locale]
+    if I18n.locale != cookies[:locale]
+      I18n.locale = cookies[:locale]
+    end
+  end
+end
+```
+
+# COOKIES
+Armazenar dados no navegador
+Para criar um *cookies* basta setar a chave/valor.
+
+```
+cookies[:meu_cookie] = "Esse é um cookies"
+```
+
+Nas *view* poderá ser chamado assim: `cookies[:meu_cookies]` em qualquer *view* do projeto.
+
+# SESSION
+Armazenar dados no servidor
+Para criar uma *session* basta setar a chave/valor
+
+```
+session[:user] = "Seja bem vindo, Fulando de tal"
+```
+
+Nas *view* poderá ser chamado assim: `session[:user]` em qualquer *view* do projeto.
