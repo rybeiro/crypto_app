@@ -1,13 +1,14 @@
 <p id="notice"><%= notice %></p>
-
+<h1><%= cookies[:curso]%></h1>
+<h1><%= session[:user]%></h1>
 <h1>Coins</h1>
 
 <table>
   <thead>
     <tr>
-      <th>Description</th>
-      <th>Acronym</th>
-      <th>Url image</th>
+      <th><%= @coins.human_attribute_name(:description) %></th>
+      <th><%= @coins.human_attribute_name(:acronym) %></th>
+      <th><%= @coins.human_attribute_name(:url_image) %></th>
       <th colspan="3"></th>
     </tr>
   </thead>
