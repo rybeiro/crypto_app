@@ -363,13 +363,21 @@ Para usar o recurso *I18n* nas *Models* criamos um arquivo no diretório *`confi
         updated_at: "Atualizado em"
         created_at: "Criado em"
 ```
+#### Alternando o idioma (i18n) dos botões (links) utilizando recursos do ActiveRecord
+Para tradução dos botões/links das *view* podemos utilizar o recurso do *ActiveRecord*
+Para isso basta interpolar na *view* o método `NomeModel.model_name_human`. Por exemplo:
+
+```
+link_to #{Coin.model_name_human}, coins_path
+```
 
 **Usando esse recurso nas *View***
 Para utilização nas *View* utilizamos o método `@NomeDaModel.human.attribute_name(:atributo)`
 
 #### Alteração do idioma (i18n) em tempo de execução
 No arquivo `aplication_controller.rb` todas as requisições vão passar por aqui.
-Então vamos armazenar o idioma que é inicializado na aplicação.
+Então vamos criar um *cookies* para armazenar o idioma que é inicializado na aplicação.
+Depois podemos alterar em tempo de execução consultando esse *cookies*
 
 ```
 berfore_action :set_locale
@@ -384,6 +392,13 @@ def set_locale
     end
   end
 end
+```
+
+No menu de idiomas temos que passar via *GET* o valor do idioma selecionado.
+Para isso utilizamos o recurso do Rails `root_path(locale: "idioma")` esse recurso seria a mesma coisa que `?/locale=idioma`, por exemplo:
+
+```
+link_to "Portugues", root_path(locale: 'pt-BR')
 ```
 
 # COOKIES

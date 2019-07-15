@@ -32,3 +32,6 @@
 pt-BR:
   language: Seu idoma é Português
   hello: "Seja bem vindo,"
+  enveroment_rails: Desenvolvimento
+  link:
+    new: "Nova Moeda"

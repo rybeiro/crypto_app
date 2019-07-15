@@ -31,4 +31,7 @@
 
 en:
   language: Your language is English
+  enveroment_rails: Development
   hello: "Welcome,"
+  link:
+    new: New coin
