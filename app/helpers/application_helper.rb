@@ -3,9 +3,9 @@ module ApplicationHelper
   	data_us.strftime("%d/%m/%Y %H:%M:%S")
   end
 
-  def ambiente_rails
+  def env_rails
     if Rails.env.development?
-      "Desenvolvimento"
+      t("enveroment_rails")
     end
   end
 end
