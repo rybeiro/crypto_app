@@ -34,4 +34,9 @@ pt-BR:
   hello: "Seja bem vindo,"
   enveroment_rails: Desenvolvimento
   link:
-    new: "Nova Moeda"
+    new: "Nova"
+    show: Exibir
+    edit: Editar
+    destroy: Apagar
+    back: Voltar
+  confirm: Você tem certeza?

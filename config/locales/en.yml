@@ -34,4 +34,9 @@ en:
   enveroment_rails: Development
   hello: "Welcome,"
   link:
-    new: New coin
+    new: New
+    show: Show
+    edit: Edit
+    destroy: Destroy
+    back: Back
+  confirm: Are you sure?

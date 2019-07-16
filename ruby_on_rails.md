@@ -345,7 +345,7 @@ Podemos utilizar os recursos das *Models* para tradução com *ActiveRecord*
 
 [Acessando a Documentação](https://guides.rubyonrails.org/i18n.html#translations-for)
 
-Para usar o recurso *I18n* nas *Models* criamos um arquivo no diretório *`config/locales/`*, por exemplo `pt-BR_models.rb` com o seguinte conteúdo.
+Para usar o recurso *I18n* nas *Models* criamos um arquivo no diretório *`config/locales/`*, por exemplo `pt-BR_models.yml` com o seguinte conteúdo.
 
 ```
 "pt-BR":
@@ -370,6 +370,8 @@ Para isso basta interpolar na *view* o método `NomeModel.model_name_human`. Por
 ```
 link_to #{Coin.model_name_human}, coins_path
 ```
+
+Também é possível usar o plural na tradução do nome da *Model* utilizando `NomeModel.model_name.human(count: 2)`. Não esqueça de configurar no arquivo *locales/pt-BR-models.yml*
 
 **Usando esse recurso nas *View***
 Para utilização nas *View* utilizamos o método `@NomeDaModel.human.attribute_name(:atributo)`
