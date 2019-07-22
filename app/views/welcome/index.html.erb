@@ -1,10 +1,10 @@
 <div class="jumbotron jumbotron-fluid">
-  <div class="container">
+  <div class="container-fluid">
     <h1 class="display-6"><%= env_rails %></h1>
     <p class="lead"><%= t("language") %> | <%= l(DateTime.now) %></p>
+    <%= render "menu"%>
   </div>
 </div>
-<%= render "menu"%>
 <script type="text/javascript">
   $.notify("Hello Box");
 </script>

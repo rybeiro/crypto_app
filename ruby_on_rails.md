@@ -238,8 +238,16 @@ Significa Embedded Ruby. Utilizada para interpolar código ruby dentro de págin
 # HELPERS
 São métodos que facilitam a implementação de um trecho de código e reutilização em qualquer parte do projeto, desde que implementado no arquivo `app/helpers/application_helper.rb`, exemplo de helpers padrões do Rails
 
-* <%= link_to '', coins_path %> Mesmo que <a href="/coins">Cadastrar Moedas</a>
-* <%= image_tag image_url, size:100x80 %> Mesmo que `img src="image.png" width="100" height="80"``
+* `<%= link_to '', coins_path %>` Mesmo que `<a href="/coins">Cadastrar Moedas</a>`
+* `<%= image_tag image_url, size:100x80 %>` Mesmo que `img src="image.png" width="100" height="80"``
+
+Para criar um link em uma imagem podemos mesclar os dois *helpers*, ficando assim:
+
+```
+<%= link_to do %>
+  <%= image_tag "brasil.png" %>
+<% end %>
+```
 
 **Criando seus HELPERS**
 
